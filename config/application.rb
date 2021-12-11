@@ -35,7 +35,7 @@ module Todo
     # Don't generate system test files.
     config.generators do |g|
       g.org            :active_record
-      g.system_test    nil
+      g.system_tests   nil
       g.test_framework nil
       g.helper         false
       g.stylesheets    false
