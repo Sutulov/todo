@@ -2,12 +2,14 @@
   "name": "todo",
   "private": true,
   "dependencies": {
+    "@npmcli/fs": "^1.1.0",
     "@rails/ujs": "^6.0.0",
-    "webpack": "^4.46.0",
+    "@rails/webpacker": "5.4.3",
     "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "webpack": "^4.46.0",
     "webpack-dev-server": "^3"
   }
 }
