@@ -10,3 +10,18 @@ html
     = javascript_pack_tag 'application'
   body
     = yield
+
+    title
+      | Линия
+    style
+      |  .line { background: #00b3d0; padding: 10px; /* Поля вокруг текста */ border: 2px dashed #fff; /* Параметры рамки */ box-shadow: 0 0 0 10px #00b3d0; /* Параметры тени */ } 
+  body
+    .line
+
+html
+  head
+    title
+      | Меняем фон сайта с помощью CSS - Нубекс
+    style
+      |  body { background: #fa8e47; color: #fff; } 
+  
