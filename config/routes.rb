@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'help/index'
+  get 'help', to: 'help#index', as: 'help_index'
   get 'about', to: 'about#index', as: 'about_index'
 
   get 'about/other', to: 'about#index'
