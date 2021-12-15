@@ -9,10 +9,11 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
 
-  p
-    = ['help', 'about'].select! {|i| i.start_with?('a') }
-  p
-    = link_to 'Помощь', controller: ['help', 'about'].first
+    = new = {'Помощь': 'help', 'О нас': 'about', 'Главная страница': 'root'}
+    = new = new.select!.each { |key, value| value != 'root' }
+    = new.each do |key, value| 
+                      p
+                        = link_to key.to_s, controller: value
 
   body
     = yield
