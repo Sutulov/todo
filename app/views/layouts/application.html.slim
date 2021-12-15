@@ -8,6 +8,12 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
+
+  p
+    = ['help', 'about'].select! {|i| i.start_with?('a') }
+  p
+    = link_to 'Помощь', controller: ['help', 'about'].first
+
   body
     = yield
 
