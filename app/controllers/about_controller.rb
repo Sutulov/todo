@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class AboutController
 class AboutController < ApplicationController
   def index
     Rails.logger.info '########################################'
