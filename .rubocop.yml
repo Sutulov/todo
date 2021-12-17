@@ -1,0 +1,11 @@
+AllCops:
+  TargetRubyVersion: 3.0.3
+  Exclide:
+    - 'tmp/**/*'
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+  
