@@ -2,7 +2,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
   def change
     create_table :events, comment: 'Список дел' do |t|
       t.string :name, comment: 'Заголовок'
-      t.text :content, comment: 'Детальное описание'
+      t.string :content, comment: 'Детальное описание'
       t.boolean :done, default: false,
                 comment: 'Статус: завершенно (true), или нет (false)'
       t.datetime :finished_at, comment: 'Дата и время завершения дела'
