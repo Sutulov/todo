@@ -3,15 +3,21 @@
 Item.destroy_all
 Event.destroy_all
 User.destroy_all
+Role.destroy_all
+
+Role.create(name: 'пользователь', code: :default)
 
 hash_users = 10.times.map do
   {
     email: FFaker::Internet.safe_email,
-    name: FFaker::Internet.user_name
+    name: FFaker::Internet.user_name,
+    role_id: Role.find_by(code: :default).id
   }
 end
 
 users = User.create hash_users
+
+# User.default_fresh(Time.mktime(2021, 12, 20)).count
 
 hash_events = 20.times.map do
   {
