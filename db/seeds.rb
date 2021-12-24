@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+Item.destroy_all
 Event.destroy_all
 User.destroy_all
 
@@ -20,4 +21,13 @@ hash_events = 20.times.map do
   }
 end
 
-Event.create hash_events
+events = Event.create hash_events
+
+hash_items = 200.times.map do
+  {
+    name: FFaker::HipsterIpsum.paragraph,
+    event_id: events.sample.id
+  }
+end
+
+Item.create hash_items
