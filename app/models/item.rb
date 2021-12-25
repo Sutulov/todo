@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class Item
 class Item < ApplicationRecord
   validates :name, presence: true

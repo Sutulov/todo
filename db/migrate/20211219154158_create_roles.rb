@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class CreateRoles
 class CreateRoles < ActiveRecord::Migration[6.1]
   def change
     create_table :roles, comment: 'Роли пользователя' do |t|
@@ -8,6 +11,6 @@ class CreateRoles < ActiveRecord::Migration[6.1]
     end
 
     add_column :users, :role_id, :integer, comment: 'Роль пользователя'
-    add_foreign_key :users, :roles 
+    add_foreign_key :users, :roles
   end
 end

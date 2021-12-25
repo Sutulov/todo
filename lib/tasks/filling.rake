@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 desc 'Заполняет таблицы пользователей, ролей, дел и подпунктов тестовыми данными'
 task filling: :environment do
   User.create name: FFaker::Name.name, email: FFaker::Internet.email

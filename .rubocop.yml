@@ -8,4 +8,5 @@ Metrics/MethodLength:
   Enabled: false
 Metrics/PerceivedComplexity:
   Enabled: false
-  
+Metrics/BlockLength:
+  Enabled: false

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class Event
 class Event < ApplicationRecord
   validates :content, presence: true

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class Role
 class Role < ApplicationRecord
   validates :name, presence: true
