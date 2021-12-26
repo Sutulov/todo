@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_26_161858) do
+ActiveRecord::Schema.define(version: 2021_12_26_163501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_12_26_161858) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "role_id", comment: "Роль пользователя"
     t.jsonb "settings", default: {}, comment: "Индивидуальные параметры пользователя"
+    t.integer "state", comment: "Статусная модель пользователя"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
   end
