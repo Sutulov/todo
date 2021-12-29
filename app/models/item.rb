@@ -4,4 +4,6 @@
 class Item < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { maximum: 500, minimum: 2 }
+
+  belongs_to :event
 end
