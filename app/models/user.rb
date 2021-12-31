@@ -17,4 +17,5 @@ class User < ApplicationRecord
   scope :default_fresh, ->(created_at) { default.fresh(created_at) }
 
   belongs_to :role
+  has_many :events
 end

@@ -6,4 +6,6 @@ class Role < ApplicationRecord
   validates :name, length: { maximum: 40, minimum: 2 }
   validates :code, presence: true
   validates :code, length: { maximum: 40, minimum: 2 }
+
+  has_many :users
 end

@@ -8,4 +8,5 @@ class Event < ApplicationRecord
   validates :name, length: { maximum: 200, minimum: 2 }
 
   belongs_to :user
+  has_many :items
 end
