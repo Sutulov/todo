@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
+Comment.destroy_all
 Item.destroy_all
 Event.destroy_all
 User.destroy_all
 Role.destroy_all
 
-Role.create(name: 'пользователь', code: :default)
+Role.create!(name: 'пользователь', code: :default)
 
 hash_users = 10.times.map do
   {
@@ -15,7 +16,7 @@ hash_users = 10.times.map do
   }
 end
 
-users = User.create hash_users
+users = User.create! hash_users
 
 hash_events = 20.times.map do
   {
@@ -25,7 +26,7 @@ hash_events = 20.times.map do
   }
 end
 
-events = Event.create hash_events
+events = Event.create! hash_events
 
 hash_items = 200.times.map do
   {
@@ -35,3 +36,14 @@ hash_items = 200.times.map do
 end
 
 Item.create hash_items
+
+hash_comments = 200.times.map do
+  {
+    content: FFaker::Lorem.paragraph,
+    user: users.sample,
+    event: events.sample
+
+  }
+end
+
+Comment.create! hash_comments

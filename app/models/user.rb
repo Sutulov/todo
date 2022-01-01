@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :name, presence: true
   validates :name, uniqueness: true
-  validates :name, length: { maximum: 16, minimum: 2 }
+  validates :name, length: { maximum: 25, minimum: 2 }
 
   store_accessor :settings, :per_page, :time_zone, :show_help
   store :settings, coder: JSON
@@ -18,4 +18,5 @@ class User < ApplicationRecord
 
   belongs_to :role
   has_many :events
+  has_many :comments
 end
