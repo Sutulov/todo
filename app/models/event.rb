@@ -10,5 +10,5 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :items
   has_many :comments
-  has_many :users, through: :comments
+  has_many :commentators, through: :comments, source: :user
 end
