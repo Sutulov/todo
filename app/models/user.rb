@@ -19,4 +19,5 @@ class User < ApplicationRecord
   belongs_to :role
   has_many :events
   has_many :comments
+  has_many :commented_events, through: :comments, source: :event
 end
