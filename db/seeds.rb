@@ -38,11 +38,13 @@ end
 Item.create hash_items
 
 hash_comments = 200.times.map do
+  commentable = (rand(2) == 1 ? events : users).sample
+
   {
     content: FFaker::Lorem.paragraph,
     user: users.sample,
-    event: events.sample
-
+    commentable_id: commentable.id,
+    commentable_type: commentable.class.to_s
   }
 end
 
