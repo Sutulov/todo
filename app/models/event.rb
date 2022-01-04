@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   validates :name, presence: true
   validates :name, length: { maximum: 200, minimum: 2 }
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_many :items
   has_many :comments, as: :commentable
   has_many :commentators, through: :comments, source: :user
