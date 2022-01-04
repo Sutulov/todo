@@ -6,4 +6,5 @@ class Item < ApplicationRecord
   validates :name, length: { maximum: 500, minimum: 2 }
 
   belongs_to :event
+  has_one :user_items, through: :event, source: :user
 end
