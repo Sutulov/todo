@@ -2,10 +2,8 @@
 
 # Class User
 class User < ApplicationRecord
-  validates :email, presence: true
-  validates :email, uniqueness: true
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :email, :name, presence: true
+  validates :email, :name, uniqueness: true
   validates :name, length: { maximum: 25, minimum: 2 }
 
   store_accessor :settings, :per_page, :time_zone, :show_help
