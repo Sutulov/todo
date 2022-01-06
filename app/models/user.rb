@@ -2,6 +2,9 @@
 
 # Class User
 class User < ApplicationRecord
+  before_destroy :log_before_destroy
+  after_destroy :log_after_destroy
+
   validates :email, :name, presence: true
   validates :email, :name, uniqueness: true
   validates :name, length: { maximum: 25, minimum: 2 }
@@ -20,4 +23,16 @@ class User < ApplicationRecord
   has_many :commented_events, through: :comments, source: :commentable, source_type: :Event
   has_many :commented_users, through: :comments, source: :commentable, source_type: :User
   has_many :all_my_items, through: :events, source: :items
+
+  def log_before_destroy
+    Rails.logger.info "######################################"
+    Rails.logger.info "Собираемся удалить пользователя #{name}"
+    Rails.logger.info "######################################"
+  end
+
+  def log_after_destroy
+    Rails.logger.info "######################################"
+    Rails.logger.info "Пользователь #{name} удалён"
+    Rails.logger.info "######################################"
+  end
 end
