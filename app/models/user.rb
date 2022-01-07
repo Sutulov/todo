@@ -2,7 +2,12 @@
 
 # Class User
 class User < ApplicationRecord
-  before_destroy :log_before_destroy
+  before_destroy do
+    Rails.logger.info "######################################"
+    Rails.logger.info "Собираемся удалить пользователя #{name}"
+    Rails.logger.info "######################################"
+  end
+
   after_destroy :log_after_destroy
 
   validates :email, :name, presence: true
@@ -25,12 +30,6 @@ class User < ApplicationRecord
   has_many :all_my_items, through: :events, source: :items
 
   private
-
-  def log_before_destroy
-    Rails.logger.info "######################################"
-    Rails.logger.info "Собираемся удалить пользователя #{name}"
-    Rails.logger.info "######################################"
-  end
 
   def log_after_destroy
     Rails.logger.info "######################################"
