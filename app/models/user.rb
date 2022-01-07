@@ -2,13 +2,11 @@
 
 # Class User
 class User < ApplicationRecord
-  before_destroy do
-    Rails.logger.info "######################################"
-    Rails.logger.info "Собираемся удалить пользователя #{name}"
-    Rails.logger.info "######################################"
-  end
-
+  before_destroy :log_before_destroy
   after_destroy :log_after_destroy
+  before_validation :normalize_name, on: :create
+  before_validation :set_role, on: %i[create update]
+  before_validation :normalize_email, if: Proc.new { |u| u.email }
 
   validates :email, :name, presence: true
   validates :email, :name, uniqueness: true
@@ -31,6 +29,24 @@ class User < ApplicationRecord
 
   private
 
+  def normalize_email
+    self.email = email.downcase
+  end
+
+  def set_role
+    self.role ||= Role.find_by(code: :default)
+  end
+
+  def normalize_name
+    self.name = name.downcase.titleize
+  end
+
+  def log_before_destroy
+    Rails.logger.info "######################################"
+    Rails.logger.info "Собираемся удалить пользователя #{name}"
+    Rails.logger.info "######################################"
+  end
+    
   def log_after_destroy
     Rails.logger.info "######################################"
     Rails.logger.info "Пользователь #{name} удалён"
