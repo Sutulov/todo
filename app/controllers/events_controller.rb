@@ -3,7 +3,10 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.includes(:items).all
+    @events = Event.includes(:items).page(params[:page]).per(3)
+    # includes
+    # eager_load
+    # prepend
   end
 
   # GET /events/1 or /events/1.json
