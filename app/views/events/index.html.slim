@@ -10,9 +10,9 @@ table
   tbody
     - @events.each do |event|
       tr
-        td = link_to 'Show', event
+        td = event.items.size
+        td = link_to event.name, event
         td = link_to 'Edit', edit_event_path(event)
-        td = link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = Event.includes(:items).all
   end
 
   # GET /events/1 or /events/1.json
