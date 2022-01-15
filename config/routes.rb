@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'about/other', to: 'about#index'
   get 'about/:hello', to: 'about#index'
 
-   root 'events#index'
+  root 'events#index'
 end

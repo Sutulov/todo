@@ -6,7 +6,7 @@ class User < ApplicationRecord
   after_destroy :log_after_destroy
   before_validation :normalize_name, on: :create
   before_validation :set_role, on: %i[create update]
-  before_validation :normalize_email, if: Proc.new { |u| u.email }
+  before_validation :normalize_email, if: proc { |u| u.email }
 
   validates :email, :name, presence: true
   validates :email, :name, uniqueness: true
@@ -42,14 +42,14 @@ class User < ApplicationRecord
   end
 
   def log_before_destroy
-    Rails.logger.info "######################################"
+    Rails.logger.info '######################################'
     Rails.logger.info "Собираемся удалить пользователя #{name}"
-    Rails.logger.info "######################################"
+    Rails.logger.info '######################################'
   end
-    
+
   def log_after_destroy
-    Rails.logger.info "######################################"
+    Rails.logger.info '######################################'
     Rails.logger.info "Пользователь #{name} удалён"
-    Rails.logger.info "######################################"
+    Rails.logger.info '######################################'
   end
 end

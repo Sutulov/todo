@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class Comment
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :commentable, polymorphic: true
@@ -7,8 +10,8 @@ class Comment < ApplicationRecord
   private
 
   def log_comment
-    Rails.logger.info "######################################"
+    Rails.logger.info '######################################'
     Rails.logger.info updated_at
-    Rails.logger.info "######################################"
+    Rails.logger.info '######################################'
   end
 end
