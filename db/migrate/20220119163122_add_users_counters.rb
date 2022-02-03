@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Class AddUsersCounters
 class AddUsersCounters < ActiveRecord::Migration[6.1]
   def change
     add_column :users,
