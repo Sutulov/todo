@@ -38,7 +38,7 @@ class User < ApplicationRecord
   end
 
   def normalize_name
-    self.name = name.downcase.titleize
+    self.name = name&.downcase&.titleize
   end
 
   def log_before_destroy
