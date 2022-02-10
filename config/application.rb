@@ -44,6 +44,7 @@ module Todo
       g.helper          false
       g.stylesheets     false
       g.javascript      false
+      g.factory_bot     dir: 'spec/factories'
     end
   end
 end
