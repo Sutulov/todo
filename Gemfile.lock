@@ -179,6 +179,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -230,6 +232,7 @@ DEPENDENCIES
   rails (~> 6.1.4, >= 6.1.4.1)
   rspec-rails
   sass-rails (>= 6)
+  shoulda-matchers
   slim-rails
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
